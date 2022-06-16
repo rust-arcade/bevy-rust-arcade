@@ -1,12 +1,9 @@
 [package]
-name = "rust-arcade-plugin"
+name = "bevy-rust-arcade"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
-[workspace]
-resolver = "2"
 
 [dependencies]
 bevy = "0.7.0"

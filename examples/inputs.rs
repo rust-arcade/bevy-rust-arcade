@@ -1,30 +1,19 @@
-use bevy::{
-    input::gamepad::{GamepadEvent, GamepadEventType},
-    prelude::*,
-};
+use bevy::prelude::*;
+use bevy_rust_arcade::{ArcadeInputEvent, RustArcadePlugin};
 
 fn main() {
     App::new()
         .add_plugins(DefaultPlugins)
-        .add_system(gamepad_events)
+        .add_plugin(RustArcadePlugin)
+        .add_system(arcade_event_system)
         .run();
 }
 
-fn gamepad_events(mut gamepad_event: EventReader<GamepadEvent>) {
-    for event in gamepad_event.iter() {
-        match &event {
-            GamepadEvent(gamepad, GamepadEventType::Connected) => {
-                info!("{:?} Connected", gamepad);
-            }
-            GamepadEvent(gamepad, GamepadEventType::Disconnected) => {
-                info!("{:?} Disconnected", gamepad);
-            }
-            GamepadEvent(gamepad, GamepadEventType::ButtonChanged(button_type, value)) => {
-                info!("{:?} of {:?} is changed to {}", button_type, gamepad, value);
-            }
-            GamepadEvent(gamepad, GamepadEventType::AxisChanged(axis_type, value)) => {
-                info!("{:?} of {:?} is changed to {}", axis_type, gamepad, value);
-            }
-        }
+fn arcade_event_system(mut arcade_input_events: EventReader<ArcadeInputEvent>) {
+    for event in arcade_input_events.iter() {
+        info!(
+            "{:?} of {:?} is changed to {}",
+            event.arcade_input, event.gamepad, event.value
+        );
     }
 }
