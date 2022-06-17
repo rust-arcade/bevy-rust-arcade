@@ -1,7 +1,15 @@
 [package]
 name = "bevy-rust-arcade"
 version = "0.1.0"
+authors = ["Carlo Supina <cdsupina@gmail.com>"]
 edition = "2021"
+description = "A Bevy plugin for making games compatible with the Rust Arcade."
+readme = "README.md"
+license = "MIT"
+repository = "https://github.com/rust-arcade/bevy-rust-arcade"
+categories = ["game-development", "games"]
+keywords = ["bevy", "gamedev", "arcade"]
+exclude = ["assets/*"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

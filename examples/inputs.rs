@@ -9,6 +9,7 @@ fn main() {
         .run();
 }
 
+// Read arcade input events
 fn arcade_event_system(mut arcade_input_events: EventReader<ArcadeInputEvent>) {
     for event in arcade_input_events.iter() {
         info!(

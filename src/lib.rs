@@ -8,8 +8,7 @@ impl Plugin for RustArcadePlugin {
     }
 }
 
-pub struct ArcadeGamepad(pub Gamepad);
-
+// Inputs on the arcade machine
 #[derive(Debug)]
 pub enum ArcadeInput {
     JoyUp,
@@ -29,12 +28,14 @@ pub enum ArcadeInput {
     ButtonFront2,
 }
 
+// Event for sending the input data
 pub struct ArcadeInputEvent {
     pub gamepad: Gamepad,
     pub arcade_input: ArcadeInput,
     pub value: f32,
 }
 
+// Read gamepad inputs and convert to arcade inputs
 fn input_events_system(
     mut gamepad_event: EventReader<GamepadEvent>,
     mut arcade_gamepad_event: EventWriter<ArcadeInputEvent>,
