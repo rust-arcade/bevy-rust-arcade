@@ -13,5 +13,12 @@ exclude = ["assets/*"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
-[dependencies]
-bevy = "0.7.0"
+[dependencies.bevy]
+version = "0.7.0"
+default-features = false
+features = ["bevy_gilrs"]
+
+[[example]]
+name = "inputs"
+path = "examples/inputs.rs"
+required-features = ["bevy/render", "bevy/bevy_winit"]
