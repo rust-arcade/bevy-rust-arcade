@@ -9,7 +9,7 @@ impl Plugin for RustArcadePlugin {
 }
 
 // Inputs on the arcade machine
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum ArcadeInput {
     JoyUp,
     JoyDown,
